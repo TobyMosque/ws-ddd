@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "workspaces": {
+      "packages": ["packages/**/*"]
+    },
+    "scripts": {
+      "build:data": "yarn workspace my.data tsc",
+      "build:domain": "yarn workspace my.domain tsc",
+      "build:infra": "yarn workspace my.infra tsc",
+      "build:libs": "yarn build:data && yarn build:domain && yarn build:infra",
+      "build:presentation": "yarn workspace my.presentation quasar build",
+      "build": "yarn build:libs && yarn build:presentation",
+      "dev:data": "yarn workspace my.data tsc-watch",
+      "dev:domain": "yarn workspace my.domain tsc-watch",
+      "dev:infra": "yarn workspace my.infra tsc-watch",
+      "dev:libs": "yarn dev:data & yarn dev:domain & yarn dev:infra",
+      "dev:presentation": "yarn workspace my.presentation quasar dev",
+      "dev": "yarn dev:libs & yarn dev:presentation"
+    }
+  }
